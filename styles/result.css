@@ -1,0 +1,119 @@
+.result {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6.25rem;
+    width: 100%;
+
+    & h2 {
+        font: var(--labelMedium);
+        color: var(--content-primary);
+        text-transform: uppercase;
+        }
+
+ & p {
+     font: var(--overline);
+     color: var(--content-secondary);
+     text-transform: uppercase;
+     }
+}
+
+.number-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.btn-2 {
+  display: none;
+  opacity: 0;
+  justify-content: start;
+  visibility: hidden;
+}
+
+.show-btn {
+  display: block;      
+  opacity: 1;         
+  visibility: visible;
+}
+  
+.content-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--content-brand);
+    margin-top: 1.25rem;
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 1.75rem;
+    animation: spin 700ms 1.2s linear forwards, containerdisappear 700ms 2.2s linear forwards;
+    transform-origin: center;
+
+    & span{
+        display: inline-block;
+        opacity: 0;
+        font: var(--span);
+        color: var(--color-inverse);
+        animation: numberview 200ms 1.2s linear forwards,
+        span-color 500ms 2s linear forwards,
+        no-rotate 800ms 1s linear forwards;
+    }
+}
+
+@keyframes numberview {
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes span-color {
+    0% {
+        color: var(--color-inverse);
+    }
+    100% {
+        scale: 0.8;
+        color: var(--content-brand);
+    }
+}
+
+@keyframes containerdisappear {
+    100% {
+      scale: 0.9;
+      background: transparent;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+
+@keyframes no-rotate {
+  100% {
+      transform: rotate(-180deg); 
+  }
+}
+
+@media (max-width: 80em) {
+    .result {
+        position: relative;
+        right: 5rem;
+    }
+
+    .number-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .btn-2 {
+        position: relative;
+        right: 5rem;
+    }
+}
