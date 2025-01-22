@@ -1,0 +1,114 @@
+.button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 8px;
+    width: 30.125rem;
+    height: 3.5rem;
+    background: var(--background-tertiary);
+    border-radius: 8px;
+    text-transform: uppercase;
+    border: transparent;
+    margin-top: 2.5rem;
+
+    & span {
+        font: var(--labelSmall);
+        color: var(--content-primary);
+        text-transform: uppercase;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+.button img {
+    display: inline-block; 
+    transition: transform 0.3s ease; 
+}
+
+.btn:focus-within button img,
+.btn:hover button img {
+    animation: arrow-right 1.2s linear infinite; 
+}
+
+
+@keyframes arrow-right {
+  0% {
+    transform: translateX(0); 
+  }
+  50% {
+    transform: translateX(15px); 
+  }
+  100% {
+    transform: translateX(0px); 
+  }
+}
+
+.button:hover:before {
+    content: "";
+    position: absolute; 
+    top: -2px; 
+    left: -2px; 
+    width: calc(100% + 4px); 
+    height: calc(100% + 4px); 
+    background: linear-gradient(
+        90deg,
+        #77C0AF 0%,
+        #D1DC97 14.84%,
+        #E9A9B3 32.15%,
+        #D586E0 65.79%,
+        #91A1FA 84.58%
+    );
+    background-size: 400% 100%;
+    border-radius: inherit; 
+    z-index: -1; 
+    animation: spin-border 1s linear infinite;
+}
+
+@keyframes spin-border {
+    0% {
+       background-position: 0% 50%;
+    }
+    25% {
+       background-position: 25% 50%;
+    }
+    50% {
+       background-position: 50% 50%;
+    }
+    75% {
+       background-position: 75% 50%;
+    }
+    100% {
+       background-position: 100% 50%;
+    }
+ }
+
+
+ .btn-2:focus-within button img,
+ .btn-2:hover button img {
+     animation: spin-btn 2.2s linear infinite; 
+ }
+ 
+ @keyframes spin-btn{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+ }
+
+ @media (max-width: 80em) {
+    .button {   
+        width: 19.875rem
+    }
+ }
